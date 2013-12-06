@@ -1,0 +1,70 @@
+.tabGroup {
+    font-family: 'Comic Sans MS',Helvetica,sans-serif;
+    margin: 0 auto;
+    background: none repeat scroll 0 0 #F3F1EB;
+    border: 1px solid #DEDBD1;
+    padding: 10px;
+    width: 310px;
+    height: 300px;
+}
+  
+/* Configure the radio buttons to hide off screen */
+.tabGroup > input[type="radio"] {
+    position: absolute;
+    left:-100px;
+    top:-100px;
+}
+  
+/* Configure labels to look like tabs */
+.tabGroup > input[type="radio"] + label {
+    /* inline-block such that the label can be given dimensions */
+    display: inline-block;
+  
+    /* A nice curved border around the tab */
+    border: 1px solid #DEDBD1;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+      
+    /* the bottom border is handled by the tab content div */
+    border-bottom: 0;
+  
+    /* Padding around tab text */
+    padding: 5px 10px;
+  
+    /* Set the background color to default gray (non-selected tab) */
+    background-color:#ddd;
+}
+  
+/* Focused tabs need to be highlighted as such */
+.tabGroup > input[type="radio"]:focus + label {
+    border:1px dashed #DEDBD1;
+}
+  
+/* Checked tabs must be white with the bottom border removed */
+.tabGroup > input[type="radio"]:checked + label {
+    background-color:white;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+}
+  
+/* The tab content must fill the widgets size and have a nice border */
+.tabGroup > div {
+    display: none;
+    border: 1px solid #DEDBD1;
+    background-color: white;
+    padding: 10px 10px;
+    height: 81%;
+    overflow: auto;
+    margin-top: -1px;
+      
+    border-radius: 0 5px 5px 5px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+}
+  
+/* This matchs tabs displaying to thier associated radio inputs */
+#rad1:checked ~ .tab1, #rad2:checked ~ .tab2, #rad3:checked ~ .tab3 {
+    display: block;
+}
